@@ -9,5 +9,5 @@ function start(){
 }
 
 function set_background(img){
-    document.body.style.backgroundImage = "url('\\images\\" + img + ".png')";
+    document.body.style.backgroundImage = "url('./images/" + img + ".jpg')";
 }
