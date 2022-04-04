@@ -4,21 +4,46 @@ body{
     background-position: top center;
 }
 
-#withe_container{
-    text-align: center;
-    background-color: white;
-    border: 3px solid black;
+.withe_container{
+    width: 35%;
+    display: table;
+    background-color: black;
     border-radius: 20px;
-    margin-left: 36%;
-    margin-right: 36%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+p{
+    font-size: 35;
+    font-family: "valorant";
+    color: white;
+    margin-top: 3%;
 }
 
 #logo{
     float: left;
-    margin-left: 5%;
-    margin-top: 5%;
+    margin: 2%;
+    margin-top: 3%;
 }
 
 #title{
-    float: center;
+    float: left;
+}
+
+.circle{
+    width: 10%;
+    height: 10%;
+    background-color: rgb(22, 216, 22);
+    border-radius: 50%;
+    /*display: inline-block;*/ /*span*/
+    float: left;
+    border: 3px solid black;
+}
+
+/*Valorant Font Declaration*/
+@font-face {
+    font-family: valorant;
+    src: url(font/Valorant\ Font.ttf);
 }
