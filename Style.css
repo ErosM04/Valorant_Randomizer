@@ -4,6 +4,10 @@ body{
     background-position: top center;
 }
 
+p{
+    font-family: valorant;
+}
+
 button{
     border: 0px;
     padding: 0px;
@@ -25,11 +29,11 @@ button{
 
 .white_container{
     background-color: white;
+    border-radius: 20px;
 }
 
 #header{ /*Than merge the the properties used even in other <p> tags in a p{}*/ 
     font-size: 35;
-    font-family: "valorant";
     color: white;
     margin-top: 3%;
 }
@@ -48,7 +52,18 @@ button{
     text-align: center;
 }
 
-#data{
+#plyrs_data{
+    float: left;
+}
+
+#plyrs_n{
+    float: left;
+    font-size: 20;
+    margin-top: 3%;
+}
+
+#plyrs_in{
+    margin-top: 3%;
     float: left;
 }
 
