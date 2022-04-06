@@ -27,7 +27,7 @@ button{
 }
 
 .white_container{
-    background-color: white;
+    background-color: black;
     border-radius: 20px;
     margin-left: 2%;
     margin-right: 2%;
@@ -63,6 +63,7 @@ button{
     font-size: 20;
     margin-top: 4%;
     margin-left: 5%;
+    color: white;
 }
 
 #plyrs_in{
@@ -71,6 +72,10 @@ button{
     float: left;
     height: 4.5%;
     width: 15%;
+    padding: 0px;
+    border: solid white ;
+    border-radius: 20%;
+    /* background-color: black; */
 }
 
 #bts_container{
@@ -84,6 +89,10 @@ button{
     height: 7%;
     border-radius: 35%;
     border: 3px solid black;
+}
+
+.bts:hover{
+    opacity: 80%;
 }
 
 #red{
