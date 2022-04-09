@@ -1,6 +1,6 @@
 body{
     background: no-repeat;
-    background-size: 110%;
+    background-size: 109%;
     background-position: top center;
 }
 
@@ -8,16 +8,9 @@ p{
     font-family: valorant;
 }
 
-button{
-    border: 0px;
-    padding: 0px;
-    float: left;
-    background-color: inherit;
-    text-align: inherit;
-}
-
 #black_container{
     width: 35%;
+    align-items: center;
     display: table;
     background-color: black;
     border-radius: 20px;
@@ -26,81 +19,9 @@ button{
     margin-left: 33%;
 }
 
-.white_container{
-    background-color: black;
-    border-radius: 20px;
-    margin-left: 2%;
-    margin-right: 2%;
-    width: 70%;
-}
-
-#header{ /*Than merge the the properties used even in other <p> tags in a p{}*/ 
-    font-size: 35;
-    color: white;
-    margin-top: 3%;
-}
-
 #logo{
-    float: left;
-    margin: 2%;
     margin-top: 3%;
-}
-
-#title{
-    float: left;
-}
-
-#players_container{
-    text-align: center;
-}
-
-#plyrs_data{
-    float: left;
-}
-
-#plyrs_n{
-    float: left;
-    font-size: 20;
-    margin-top: 4%;
-    margin-left: 5%;
-    color: white;
-}
-
-#plyrs_in{
-    margin-top: 2.5%;
-    margin-left: 4%;
-    float: left;
-    height: 4.5%;
-    width: 15%;
-    padding: 0px;
-    border: solid white ;
-    border-radius: 20%;
-    /* background-color: black; */
-}
-
-#bts_container{
-    width: 27%;
-    display: inline-block;
-}
-
-.bts{
-    color: inherit;
-    width: 13%;
-    height: 7%;
-    border-radius: 35%;
-    border: 3px solid black;
-}
-
-.bts:hover{
-    opacity: 80%;
-}
-
-#red{
-    background-color: red;
-}
-
-#green{
-    background-color: rgb(22, 216, 22);
+    margin-left: 3%;
 }
 
 /*Valorant Font Declaration*/
