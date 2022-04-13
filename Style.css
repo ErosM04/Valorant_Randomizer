@@ -8,20 +8,32 @@ p{
     font-family: valorant;
 }
 
-#black_container{
-    width: 35%;
-    align-items: center;
-    display: table;
+/* #a{
+    text-align: center;
+} */
+
+#black-container{
+    width: 32vw;
+    height: 8vh;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 1.5vw;
     margin-top: 2%;
     margin-bottom: 2%;
-    margin-left: 33%;
+    display: inline-block;
 }
 
 #logo{
-    margin-top: 3%;
-    margin-left: 3%;
+    float: left;
+    margin-left: 1vw;
+    margin-top: 0.8vw;
+    margin-right: 0.8vw;
+}
+
+#title{
+    float: left;
+    font-size: 2vw; /*this freaking value scales with the Viewport Width*/
+    color: #ece8e1; /*chill so as not to burn the retina*/
+    margin-top: 0.8vw;
 }
 
 /*Valorant Font Declaration*/
