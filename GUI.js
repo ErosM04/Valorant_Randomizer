@@ -1,3 +1,6 @@
+var background1 = "Background1";
+var background2 = "Background2"; //To define
+
 function start(){
     set_background(background1);
 }

@@ -1,10 +1,9 @@
-var maps = ["SPLIT","HAVEN","ASCENT","ICEBOX","BIND"]; //Fracture non la vuole nessuno
-var agents = ["JETT","SAGE","SOVA","REYNA","OMEN","BREACH","BRIMSTONE","PHOENIX","RAZE","KILLJOY","CYPHER","VIPER","SKYE","YORU","ASTRA","KAY/O","CHAMBER","NEON"];
-var background1 = "Background1";
-var background2 = "Background2"; //To define
+var maps = ["SPLIT","HAVEN","ASCENT","ICEBOX","BIND", "FRACTURE", "BREEZE"]; 
+var agents = ["JETT","SAGE","SOVA","REYNA","OMEN","BREACH","BRIMSTONE","PHOENIX","RAZE","KILLJOY","CYPHER","VIPER","SKYE","YORU","ASTRA","KAYO","CHAMBER","NEON"];
 var players = ["a", "b", "c", "d", "e", "f"] //An array that contains all the players' nicknames
 var attackers = new Array()
 var defenders = new Array()
+var map
 
 function addPlayer(name){
     players[players.length] = name
@@ -22,6 +21,10 @@ async function randomize(){
     await ramdomizeAgents()
     
     updateAgents()
+
+    ramdomizeMap()
+
+    updateMap()
 }
 
 function ramdomizeAgents(){
@@ -62,6 +65,12 @@ function randomizeSquad(){
     }
 }
 
+function ramdomizeMap(){
+    r = Math.floor(Math.random()*(maps.length-1)) 
+    map = maps[r]
+
+}
+
 function updateLabels(){
     let input = document.createElement("input")
     for(i = 0; i < attackers.length; i++){
@@ -83,5 +92,24 @@ function updateLabels(){
 }
 
 function updateAgents(){
-    //la faro' giuro
+    let img = document.createElement("img")
+    for(i = 0; i < attackers.length; i++){
+        let elm = document.querySelector("#attackers").querySelector("#agents")
+        img = document.createElement("img")
+        img.src = "images\\Agents\\"+attackers[i]+".png"
+        elm.appendChild(img)
+    }
+    for(i = 0; i < defenders.length; i++){
+        let elm = document.querySelector("#defenders").querySelector("#agents")
+        img = document.createElement("img")
+        img.src = "images\\Agents\\"+defenders[i]+".png"
+        elm.appendChild(img)
+    }
+}
+
+function updateMap(){
+    let elm = document.querySelector("#map")
+    img = document.createElement("img")
+    img.src = "images\\Maps\\"+map+".png"
+    elm.appendChild(img)
 }
