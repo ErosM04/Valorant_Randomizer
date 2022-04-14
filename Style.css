@@ -1,39 +1,27 @@
 body{
-    background: no-repeat;
-    background-size: 109%;
+    background: repeat-y;
+    background-size: cover;
     background-position: top center;
 }
 
-p{
+p.title{
     font-family: valorant;
+    color: #ece8e1;
+    margin: 0%;
+    font-size: calc(100% + 1vw + 1vh);
 }
 
-/* #a{
-    text-align: center;
-} */
+#ttl-img{
+    width: calc(40% + 1vw + 1vh);
+    height: auto;
+}
 
-#black-container{
-    width: 32vw;
-    height: 8vh;
+.black-container{
+    font-family: valorant;
     background-color: black;
-    border-radius: 1.5vw;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    display: inline-block;
-}
-
-#logo{
-    float: left;
-    margin-left: 1vw;
-    margin-top: 0.8vw;
-    margin-right: 0.8vw;
-}
-
-#title{
-    float: left;
-    font-size: 2vw; /*this freaking value scales with the Viewport Width*/
-    color: #ece8e1; /*chill so as not to burn the retina*/
-    margin-top: 0.8vw;
+    background-color: 5px solid black;
+    border-radius: 50px;
+    padding: 20px;
 }
 
 /*Valorant Font Declaration*/
