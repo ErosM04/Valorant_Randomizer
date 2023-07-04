@@ -1,7 +1,10 @@
 body{
     background: no-repeat;
-    background-size: 110%;
+    background-size: 100%;
     background-position: top center;
+    background-image: url('images/valorant_background.jpg');
+    background-repeat: no-repeat;
+    justify-content: center;
 }
 
 p{
@@ -16,69 +19,69 @@ button{
     text-align: inherit;
 }
 
-#black_container{
-    width: 35%;
+.black_container{
     display: table;
     background-color: black;
     border-radius: 20px;
     margin-top: 2%;
     margin-bottom: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#header-div{
+    width: 520px;
     margin-left: 33%;
 }
 
-.white_container{
+/* .white_container{
     background-color: black;
     border-radius: 20px;
     margin-left: 2%;
     margin-right: 2%;
     width: 70%;
-}
-
-#header{ /*Than merge the the properties used even in other <p> tags in a p{}*/ 
-    font-size: 35;
-    color: white;
-    margin-top: 3%;
-}
+} */
 
 #logo{
-    float: left;
     margin: 2%;
     margin-top: 3%;
 }
 
-#title{
-    float: left;
+#header{ /*Than merge the properties used even in other <p> tags in a p{}*/ 
+    font-size: 35;
+    color: white;
+    margin-top: 4%;
 }
 
-#players_container{
+#title_div{
+    height: 35px;
+}
+
+#pl-amount-div{
+    width: 310px;
+    margin: auto;
     text-align: center;
 }
 
-#plyrs_data{
-    float: left;
-}
-
-#plyrs_n{
-    float: left;
+#players_text{
     font-size: 20;
+    margin-inline: 7%;
     margin-top: 4%;
-    margin-left: 5%;
+    margin-bottom: 3%;
     color: white;
 }
 
-#plyrs_in{
+#plyrs_input{
     margin-top: 2.5%;
-    margin-left: 4%;
-    float: left;
-    height: 4.5%;
-    width: 15%;
-    padding: 0px;
-    border: solid white ;
-    border-radius: 20%;
-    /* background-color: black; */
+    margin-right: 4%;
+    height: 30px;
+    width: 50px;
+    border: solid white;
+    border-radius: 12px;
+    font-size: 20;
 }
 
-#bts_container{
+/* #bts_container{
     width: 27%;
     display: inline-block;
 }
@@ -95,14 +98,6 @@ button{
     opacity: 80%;
 }
 
-#red{
-    background-color: red;
-}
-
-#green{
-    background-color: rgb(22, 216, 22);
-}
-
 #pl_box{
     margin-top: 5%;
     text-align: center;
@@ -114,6 +109,35 @@ button{
 
 #in_label{
     width: 10%;
+} */
+
+#agent-selector-div{
+    margin: auto;
+    margin-top: 4%;
+}
+
+.agent-deselect-img{
+    width: 50px;
+    height: auto;
+    margin-left: 30px;
+    margin-right: 5px;
+}
+
+.check-agent{
+    width: 30px; 
+    height: 30px;
+    background-color: black !important;
+}
+
+#map-selector-div{
+    margin: auto;
+}
+
+.map-deselect-img{
+    width: 50px;
+    height: auto;
+    margin-left: 30px;
+    margin-right: 5px;
 }
 
 /*Valorant Font Declaration*/

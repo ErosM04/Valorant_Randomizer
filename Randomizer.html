@@ -1,49 +1,87 @@
 <head>
     <!--Bootstrap Library-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <!--Files and Title-->
     <script src="Behavior.js"></script>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Valorant Randomizer</title>
 </head>
 <body onload="start()">
-    <!--Header-->
+    <!-- Header -->
     <div>
-        <div id="black_container">
+        <div id="header-div" class="black_container">
             <div id="logo"><a href="https://playvalorant.com/en-us/?utm_source=riotbar&utm_medium=productcard%2Bwww.riotgames.com&utm_campaign=val&utm_content=ep4"><img src="images/white_logo_resized.png"></a></div>
-            <div id="title"><p id="header">Valorant Randomizer</p></div>
-        </div>
-    </div>
-    <!--Player number selector-->
-    <div id="players_container"> <!--Delete this via JS-->
-        <div id="bts_container"> <!--Buttons Container-->
-            <div>
-                <button id="red" class="bts" onclick=""><img src="images/-.png"></button>
-            </div>
-            <div id="plyrs_data" class="white_container">
-                <p id="plyrs_n">Players number:</p>
-                <input id="plyrs_in" type="text" readonly>
-            </div>
-            <div>
-                <button id="green" class="bts" onclick=""><img src="images/+.png"></button>
-            </div>
-        </div>
-        <div id="pl_box">
-            <!--Here labels for palyer's names-->
-            <div class="label">
-                <p class="pl_label">Player1:</p>
-                <input id="in_label" type="text">
-            </div>
+            <div id="title_div"><p id="header">Valorant Randomizer</p></div>
         </div>
     </div>
 
-        <button onclick="randomizeSquads()">Re-randomizza nickname</button>
+    <!-- Player amount form (insert player number) -->
+    <div id="pl-amount-div" class="black_container"> <!--Delete this via JS-->
+        <p id="players_text">Players amount:</p>
+        <input id="plyrs_input" type="number">
+    </div>
+
+    <!-- Agent remover (select the agents to remove) -->
+    <div id="agent-selector-div">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/BREACH.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/CHAMBER.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/OMEN.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/JETT.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/VIPER.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/YORU.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/SKYE.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/KILLJOY.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/BREACH.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/NEON.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/OMEN.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+        <img class="agent-deselect-img" src="images/Agents/JETT.png">
+        <input class="check-agent" type="checkbox" name="ASTRA" id="check-ASTRA">
+    </div>
+
+    <!-- Map remover (select the maps to remove) -->
+    <div id="map-selector-div">
+        <img class="agent-deselect-img" src="images/Maps/ASCENT.png">
+        <input class="check-agent" type="checkbox" name="ASCENT" id="check-ASCENT">
+    </div>
+
+        <!-- <button onclick="randomizeSquads()">Re-randomizza nickname</button>
         <button onclick="ramdomizeAgents()">Re-randomizza agenti</button>
-        <button onclick="ramdomizeMap()">Re-randomizza mappa</button>
+        <button onclick="ramdomizeMap()">Re-randomizza mappa</button> -->
 
-        <div id="attackers">
+        <!-- <div id="attackers">
             <div id="nicknames">
     
             </div>
@@ -63,7 +101,7 @@
 
         <div id="map">
 
-        </div>
+        </div> -->
     
     </body>
 </html>

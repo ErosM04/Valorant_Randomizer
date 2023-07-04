@@ -1,5 +1,5 @@
-var maps = ["SPLIT", "HAVEN", "ASCENT", "ICEBOX", "BIND", "FRACTURE", "BREEZE"];
-var agents = ["JETT", "SAGE", "SOVA", "REYNA", "OMEN", "BREACH", "BRIMSTONE", "PHOENIX", "RAZE", "KILLJOY", "CYPHER", "VIPER", "SKYE", "YORU", "ASTRA", "KAYO", "CHAMBER", "NEON"];
+var maps = ["SPLIT", "HAVEN", "ASCENT", "ICEBOX", "BIND", "FRACTURE", "BREEZE", "PEARL", "LOTUS"];
+var agents = ["JETT", "SAGE", "SOVA", "REYNA", "OMEN", "BREACH", "BRIMSTONE", "PHOENIX", "RAZE", "KILLJOY", "CYPHER", "VIPER", "SKYE", "YORU", "ASTRA", "KAYO", "CHAMBER", "NEON", "FADE", "HARBOR", "GEKKO", "DEADLOCK"];
 var players = ["a", "b", "c", "d", "e", "f"] //An array that contains all the players' nicknames
 var attackers = new Array()
 var defenders = new Array()
