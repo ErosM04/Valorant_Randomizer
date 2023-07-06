@@ -11,6 +11,10 @@ p{
     font-family: valorant;
 }
 
+input{
+    font-family: valorant;
+}
+
 button{
     border: 0px;
     padding: 0px;
@@ -20,7 +24,6 @@ button{
 }
 
 .black_container{
-    display: table;
     background-color: black;
     border-radius: 20px;
     margin-top: 2%;
@@ -111,9 +114,31 @@ button{
     width: 10%;
 } */
 
+.deselect-title{
+    width: 250px;
+    height: 30px;
+}
+
+.deselect-title p{
+    font-size: 20;
+    color: white;
+    margin-inline: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.deselect-title button p{
+    font-size: 20;
+    color: white;
+    margin-inline: auto;
+    margin-bottom: 2%;
+    margin-top: 4%;
+}
+
 #agent-selector-div{
     margin: auto;
-    margin-top: 4%;
+    margin-top: 1%;
 }
 
 .agent-deselect-img{
@@ -123,10 +148,9 @@ button{
     margin-right: 5px;
 }
 
-.check-agent{
+.deselect-checkbox{
     width: 30px; 
     height: 30px;
-    background-color: black !important;
 }
 
 #map-selector-div{
@@ -134,10 +158,22 @@ button{
 }
 
 .map-deselect-img{
-    width: 50px;
+    width: 150px;
     height: auto;
-    margin-left: 30px;
-    margin-right: 5px;
+    margin-inline: 5px;
+}
+
+.deselect-div{
+    display: inline-block;
+    position: relative;
+    margin-inline: 10px;
+}
+
+.lol{
+    position: absolute;
+    bottom: 1%;
+    left: 20%;
+    color: white;
 }
 
 /*Valorant Font Declaration*/

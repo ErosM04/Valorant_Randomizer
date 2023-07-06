@@ -5,6 +5,8 @@ var attackers = new Array()
 var defenders = new Array()
 var map
 
+// API: https://valorant-api.com
+
 /**
  * Questo metodo aggiunge un nuovo giocatore
  * @param {String} name nome del giocatore
