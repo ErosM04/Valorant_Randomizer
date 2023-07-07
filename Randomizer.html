@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Valorant Randomizer</title>
 </head>
-<body onload="buildMenu()">
+<body onload="buildMenus()">
     <!-- Header -->
     <div> <!-- Sistema come il titolo viene centrato -->
         <div id="header-div" class="black_container">
@@ -29,94 +29,7 @@
         <p>Agent deselector</p>
     </div>
     <div id="agent-selector-div">
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
-        <div class="deselect-div">
-            <img class="agent-deselect-img" src="images/Agents/ASTRA.png">
-            <input class="deselect-checkbox" type="checkbox" name="ASTRA" id="check-ASTRA">
-        </div>
+        <!-- Dynamically built agents -->
     </div>
 
     <!-- Map remover (select the maps to remove) -->
@@ -124,51 +37,12 @@
         <p>Map deselector</p>
     </div>
     <div id="map-selector-div">
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/ASCENT.png"></img>
-            <p class="lol">ASCENT</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/BIND.png"></img>
-            <p class="lol">BIND</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/ASCENT.png"></img>
-            <p class="lol">ASCENT</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/BIND.png"></img>
-            <p class="lol">BIND</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/BIND.png"></img>
-            <p class="lol">BIND</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/ASCENT.png"></img>
-            <p class="lol">ASCENT</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div">  
-            <img class="map-deselect-img" src="images/Maps/ASCENT.png"></img>
-            <p class="lol">ASCENT</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
-        <div class="deselect-div"> 
-            <img class="map-deselect-img" src="images/Maps/BIND.png">
-            <p class="lol">BIND</p>
-            <input class="deselect-checkbox" type="checkbox" name="ASCENT" id="check-ASCENT">
-        </div>
+       <!-- Dynamically built agents -->
     </div>
     
     <!-- Button to generate the squads -->
-    <div class="deselect-title black_container">
-        <p>Generate</p>
+    <div id="generate-div" class="deselect-title black_container">
+        <input id="config-submit" type="submit" value="Generate">
     </div>
 
 
