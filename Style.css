@@ -70,6 +70,8 @@ input{
     margin: auto;
     text-align: center;
     white-space: nowrap;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
 }
 
 #players_text{
@@ -124,6 +126,7 @@ input{
     width: max-content;
     white-space: nowrap;
     padding: 0.5%;
+    padding-inline: 1%;
 }
 
 .deselect-title p{
