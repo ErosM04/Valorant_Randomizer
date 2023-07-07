@@ -43,8 +43,6 @@ function buildMapCell(name, image){
     // Creates the image
     let img = document.createElement('img');
     img.src = image;
-    // img.width = '150';
-    // img.style.marginInline = '50';
     img.className = 'map-deselect-img';
     // Creates the text
     let text = document.createElement('p');

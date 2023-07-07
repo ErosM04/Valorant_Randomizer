@@ -1,8 +1,4 @@
 <head>
-    <!--Bootstrap Library-->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <!--Files and Title-->
     <script src="Behavior.js"></script>
     <script src="menus.js"></script>
@@ -11,16 +7,18 @@
 </head>
 <body onload="buildMenus()">
     <!-- Header -->
-    <div> <!-- Sistema come il titolo viene centrato -->
-        <div id="header-div" class="black_container">
-            <div id="logo"><a href="https://playvalorant.com/en-us/?utm_source=riotbar&utm_medium=productcard%2Bwww.riotgames.com&utm_campaign=val&utm_content=ep4"><img src="images/white_logo_resized.png"></a></div>
-            <div id="title_div"><p id="header">Valorant Randomizer</p></div>
+    <div id="header-div" class="black_container">
+        <div id="logo">
+            <a href="https://playvalorant.com/en-us/?utm_source=riotbar&utm_medium=productcard%2Bwww.riotgames.com&utm_campaign=val&utm_content=ep4">
+                <img src="images/white_logo_resized.png">
+            </a>
         </div>
+        <div><p id="header">Valorant Randomizer</p></div>
     </div>
 
     <!-- Player amount form (insert player number) -->
     <div id="pl-amount-div" class="black_container">
-        <p id="players_text">Players amount:</p>
+        <p id="players_text">Players number:</p>
         <input id="plyrs_input" type="number">
     </div>
 
@@ -41,8 +39,8 @@
     </div>
     
     <!-- Button to generate the squads -->
-    <div id="generate-div" class="deselect-title black_container">
-        <input id="config-submit" type="submit" value="Generate">
+    <div class="button_slide slide_left" onclick="generate()">
+        <p>Generate</p>
     </div>
 
 
