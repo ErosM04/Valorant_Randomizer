@@ -1,74 +1,80 @@
-<head>
-    <!--Files and Title-->
-    <script src="Behavior.js"></script>
-    <script src="menus.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Valorant Randomizer</title>
-</head>
-<body onload="buildMenus()">
-    <!-- Header -->
-    <div id="header-div" class="black_container">
-        <div id="logo">
-            <a href="https://playvalorant.com/en-us/?utm_source=riotbar&utm_medium=productcard%2Bwww.riotgames.com&utm_campaign=val&utm_content=ep4">
-                <img src="images/white_logo_resized.png">
-            </a>
+<html>
+    <head>
+        <!--Files and Title-->
+        <script src="menus.js"></script>
+        <script src="players.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Valorant Randomizer</title>
+    </head>
+    <body onload="buildMenus()">
+        <!-- Header -->
+        <div id="header-div" class="black_container">
+            <div id="logo">
+                <a href="https://playvalorant.com/en-us/?utm_source=riotbar&utm_medium=productcard%2Bwww.riotgames.com&utm_campaign=val&utm_content=ep4">
+                    <img src="images/white_logo_resized.png">
+                </a>
+            </div>
+            <div><p id="header">Valorant Randomizer</p></div>
         </div>
-        <div><p id="header">Valorant Randomizer</p></div>
-    </div>
 
-    <!-- Player amount form (insert player number) -->
-    <div id="pl-amount-div" class="black_container">
-        <p id="players_text">Players number:</p>
-        <input id="plyrs_input" type="number">
-    </div>
+        <!-- Player amount form (insert player number) -->
+        <div id="pl-amount-div" class="black_container">
+            <p id="players_text">Players number:</p>
+            <input id="plyrs_input" type="number" oninput="createPlayers(this.value)">
+        </div>
 
-    <!-- Agent remover (select the agents to remove) -->
-    <div class="deselect-title black_container">
-        <p>Agent deselector</p>
-    </div>
-    <div id="agent-selector-div">
-        <!-- Dynamically built agents -->
-    </div>
+        <!-- Player forms to insert names -->
+        <div id="players-inserter-div" class="agent-selector-div">
+            <!-- Dynamically built input fields to insert the name -->
+        </div>
 
-    <!-- Map remover (select the maps to remove) -->
-    <div class="deselect-title black_container">
-        <p>Map deselector</p>
-    </div>
-    <div id="map-selector-div">
-       <!-- Dynamically built agents -->
-    </div>
-    
-    <!-- Button to generate the squads -->
-    <div class="button_slide slide_left" onclick="generate()">
-        <p>Generate</p>
-    </div>
+        <!-- Agent remover (select the agents to remove) -->
+        <div class="deselect-title black_container">
+            <p>Agent deselector</p>
+        </div>
+        <div id="agent-selector-div">
+            <!-- Dynamically built agents -->
+        </div>
 
-
-        <!-- <button onclick="randomizeSquads()">Re-randomizza nickname</button>
-        <button onclick="ramdomizeAgents()">Re-randomizza agenti</button>
-        <button onclick="ramdomizeMap()">Re-randomizza mappa</button> -->
-
-        <!-- <div id="attackers">
-            <div id="nicknames">
-    
-            </div>
-            <div id="agents">
-    
-            </div>
+        <!-- Map remover (select the maps to remove) -->
+        <div class="deselect-title black_container">
+            <p>Map deselector</p>
+        </div>
+        <div id="map-selector-div">
+            <!-- Dynamically built agents -->
         </div>
         
-        <div id="defenders">
-            <div id="nicknames">
-    
-            </div>
-            <div id="agents">
-                
-            </div>
+        <!-- Button to generate the squads -->
+        <div class="button_slide slide_left" onclick="generate()">
+            <p>Generate</p>
         </div>
 
-        <div id="map">
 
-        </div> -->
-    
+            <!-- <button onclick="randomizeSquads()">Re-randomizza nickname</button>
+            <button onclick="ramdomizeAgents()">Re-randomizza agenti</button>
+            <button onclick="ramdomizeMap()">Re-randomizza mappa</button> -->
+
+            <!-- <div id="attackers">
+                <div id="nicknames">
+        
+                </div>
+                <div id="agents">
+        
+                </div>
+            </div>
+            
+            <div id="defenders">
+                <div id="nicknames">
+        
+                </div>
+                <div id="agents">
+                    
+                </div>
+            </div>
+
+            <div id="map">
+
+            </div> -->
+        
     </body>
 </html>

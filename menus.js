@@ -30,7 +30,7 @@ function buildAgentCell(name, image){
     check.id = 'check-agent-' + name;
     check.checked = true;
 
-    //Appends the elements
+    // Appends the elements
     div.appendChild(img);
     div.appendChild(check);
     document.getElementById('agent-selector-div').appendChild(div);
@@ -55,7 +55,7 @@ function buildMapCell(name, image){
     check.id = 'check-map-' + name;
     check.checked = true;
 
-    //Appends the elements
+    // Appends the elements
     div.appendChild(img);
     div.appendChild(text);
     div.appendChild(check);
