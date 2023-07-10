@@ -1,4 +1,4 @@
-const players = [];
+var players = [];
 
 function createPlayers(number){
     if(number < 0)
@@ -30,9 +30,18 @@ function createPlayerForm(index){
     document.getElementById('players-inserter-div').appendChild(div);
 }
 
-/*
-    <div class="deselect-div player-name-div">
-        <p>Player1:</p>
-        <input type="text">
-    </div>
-*/
+function extractPlayersName() {
+    if (document.getElementById('plyrs_input').value > 1) {
+        players = [];     
+        let plyersInputs = document.querySelectorAll('div.player-name-div > input');
+        for (const player of plyersInputs) {
+            if(player.value == '' || players.includes(player.value)){
+                players = [];
+                return false;
+            }else{
+                players.push(player.value);
+            }   
+        }
+    }
+    return true;
+}

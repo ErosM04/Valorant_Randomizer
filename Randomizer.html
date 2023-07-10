@@ -3,10 +3,12 @@
         <!--Files and Title-->
         <script src="menus.js"></script>
         <script src="players.js"></script>
+        <!-- <script src="test.js"></script> -->
         <link rel="stylesheet" href="style.css">
         <title>Valorant Randomizer</title>
     </head>
     <body onload="buildMenus()">
+        <input type="hidden" value="ciao_piskelly">
         <!-- Header -->
         <div id="header-div" class="black_container">
             <div id="logo">
@@ -45,7 +47,7 @@
         </div>
         
         <!-- Button to generate the squads -->
-        <input type="submit" value="Generate" class="button_slide slide_left" onclick="generate()">
+        <div class="button_slide slide_left" onclick="extractPlayersName()">Generate</div>
 
 
         <!-- <button onclick="randomizeSquads()">Re-randomizza nickname</button>
@@ -73,6 +75,5 @@
         <div id="map">
 
         </div> -->
-        
     </body>
 </html>
