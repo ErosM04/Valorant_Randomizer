@@ -49,8 +49,9 @@ function extractPlayersName() {
                 players.push(player.value);
             }   
         }
+        return true;
     }
-    return true;
+    return false;
 }
 
 function loadGamePage() {

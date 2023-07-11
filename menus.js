@@ -22,7 +22,7 @@ function buildAgentCell(name, image){
     div.className = "deselect-div";
     // Creates the image
     let img = document.createElement('img');
-    img.src = image;
+    // img.src = image;
     img.className = 'agent-deselect-img';
     // Creates the checkbox
     let check = document.createElement('input');
@@ -43,7 +43,7 @@ function buildMapCell(name, image){
     div.className = "deselect-div";
     // Creates the image
     let img = document.createElement('img');
-    img.src = image;
+    // img.src = image;
     img.className = 'map-deselect-img';
     // Creates the text
     let text = document.createElement('p');
