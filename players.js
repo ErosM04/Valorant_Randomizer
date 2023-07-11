@@ -1,5 +1,3 @@
-var players = [];
-
 function createPlayers(number){
     if(number < 0)
         number = 0;
@@ -28,20 +26,4 @@ function createPlayerForm(index){
     div.appendChild(text);
     div.appendChild(input);
     document.getElementById('players-inserter-div').appendChild(div);
-}
-
-function extractPlayersName() {
-    if (document.getElementById('plyrs_input').value > 1) {
-        players = [];     
-        let plyersInputs = document.querySelectorAll('div.player-name-div > input');
-        for (const player of plyersInputs) {
-            if(player.value == '' || players.includes(player.value)){
-                players = [];
-                return false;
-            }else{
-                players.push(player.value);
-            }   
-        }
-    }
-    return true;
 }

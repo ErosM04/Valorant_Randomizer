@@ -1,4 +1,6 @@
 const unwantedMaps = ['District', 'Kasbah', 'Piazza', 'The Range'];
+var totalAgentsMap = new Map();
+var totalMapsMap = new Map();
 
 async function buildMenus(){
     let agents = await getAgentsMap();
@@ -11,7 +13,6 @@ async function buildMenus(){
     for (const [key, value] of maps.entries()) {
         if(!unwantedMaps.includes(key))
             buildMapCell(key, value);
-        
     }
 }
 
@@ -70,6 +71,7 @@ async function getAgentsMap(){
     const agents = await res.json();
     const agentsMap = new Map();
     agents['data'].forEach(agent => agentsMap.set(agent["displayName"], agent["displayIcon"]));
+    totalAgentsMap = agentsMap;
     return agentsMap;
 }
 
@@ -79,7 +81,8 @@ async function getAgentsMap(){
 async function getMapsMap(){
     const res = await fetch("https://valorant-api.com/v1/maps");
     const maps = await res.json();
-    const mapMap = new Map();
-    maps['data'].forEach(map => mapMap.set(map["displayName"], map["splash"]));
-    return mapMap;
+    const mapsMap = new Map();
+    maps['data'].forEach(map => mapsMap.set(map["displayName"], map["splash"]));
+    totalMapsMap = mapsMap
+    return mapsMap;
 }
