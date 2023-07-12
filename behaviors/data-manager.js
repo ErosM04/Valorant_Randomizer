@@ -55,5 +55,5 @@ function extractPlayersName() {
 }
 
 function loadGamePage() {
-    window.location = 'game.html';
+    window.location = 'pages/game.html';
 }

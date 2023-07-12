@@ -1,0 +1,52 @@
+#map-name-div{
+    width: 15vw;
+    align-items: center;
+    margin: auto;
+}
+
+#map-name-div p{
+    margin: auto;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    color: white;
+    font-size: 1.8vw;
+}
+
+#squads-div{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.squad{
+    width: 30%;
+    background-color: red;
+    border: 1px solid black;
+    float: left;
+    align-items: center;
+}
+
+#attackers{
+    margin-left: 3%;
+}
+
+#defenders{
+    margin-left: 3%;
+}
+
+
+
+/* .float-left{
+    float: left;
+    margin-left: 5%;
+}
+
+.float-right{
+    float: right;
+    margin-right: 5%;
+}
+
+.float-right{
+    float: ;
+} */

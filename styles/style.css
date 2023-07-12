@@ -1,0 +1,67 @@
+body{
+    background: no-repeat;
+    background-size: 100%;
+    background-position: top center;
+    background-image: url('../images/valorant_background.jpg');
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-attachment: fixed;
+    overflow-y: scroll; /* Add the ability to scroll */
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+p{
+    font-family: valorant;
+    letter-spacing: 0.1vw;
+}
+
+input{
+    font-family: valorant;
+}
+
+.black_container{
+    background-color: black;
+    border-radius: 1.4vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* Page header */
+#header-div{
+    width: 38vw;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#logo{
+    margin: 2%;
+    margin-top: 3%;
+}
+
+#logo a img{
+    width: 3.2vw;
+}
+
+#header{
+    font-size: 2.35vw;
+    color: white;
+    margin-top: 4%;
+    margin-bottom: 1%;
+}
+
+
+/* Valorant Font Declaration */
+@font-face {
+    font-family: valorant;
+    src: url(../font/Valorant\ Font.ttf);
+}
