@@ -6,47 +6,105 @@
 
 #map-name-div p{
     margin: auto;
-    margin-top: 4%;
-    margin-bottom: 2%;
+    margin-top: 5%;
+    margin-bottom: 3%;
     color: white;
     font-size: 1.8vw;
 }
 
 #squads-div{
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
 .squad{
     width: 30%;
-    background-color: red;
-    border: 1px solid black;
-    float: left;
     align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
-#attackers{
-    margin-left: 3%;
+.squad > p{
+    margin: auto;
+    font-size: 1.5vw;
+    padding: 1vw;
+    padding-top: 0.7vw;
+    padding-bottom: 0.5vw;
 }
 
 #defenders{
     margin-left: 3%;
 }
 
-
-
-/* .float-left{
-    float: left;
-    margin-left: 5%;
+#defenders > p{
+    color: #459E8E;
 }
 
-.float-right{
-    float: right;
-    margin-right: 5%;
+#defenders div.players-div div.player-row img{
+    background: rgba(17, 127, 154, .9);
 }
 
-.float-right{
-    float: ;
-} */
+#defenders div.players-div div.player-row p{
+    background: rgba(44, 172, 204, .9);
+}
+
+#attackers{
+    margin-right: 3%;
+}
+
+#attackers > p{
+    color: #F24464;
+}
+
+#attackers div.players-div div.player-row img{
+    background: rgba(214, 21, 37, 0.9);
+}
+
+#attackers div.players-div div.player-row p{
+    background: rgba(255, 70, 85, .9);
+}
+
+.players-div{
+    width: 70%;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.player-row{
+    display: flex;
+    margin-top: 0.4vw;
+    margin-bottom: 0.4vw;
+}
+
+.agent-img{
+    width: 3.4vw;
+    height: auto;
+    padding: 0.3vw;
+    padding-left: 0.5vw;
+    padding-right: 0.4vw;
+}
+
+.player-name{
+    width: 100%;
+    margin: 0;
+    padding: 0.6vw;
+    padding-top: 7.5%;
+    padding-left: 0.5vw;
+    vertical-align: middle;
+    font-size: 1.1vw;
+}
+
+#map-icon{
+    width: 100%;
+}
+
+#rerandomize-div{
+    display: flex;
+    justify-content: center;
+}
+
+.margin-button{
+    margin-inline: 1%;
+}

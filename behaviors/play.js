@@ -2,6 +2,7 @@ function printParameters() {
     var players = new Map(Object.entries(JSON.parse(sessionStorage.players)));
     var agents = new Map(Object.entries(JSON.parse(sessionStorage.agents)));
     var maps = new Map(Object.entries(JSON.parse(sessionStorage.maps)));
+    document.body.style.backgroundImage = "url('../images/splash.png')";
     // document.body.style.backgroundImage = "url('" + getRandomValueFromMap(maps) + "')";
 }
 

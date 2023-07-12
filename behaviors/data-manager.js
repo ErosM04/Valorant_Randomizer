@@ -42,7 +42,7 @@ function extractPlayersName() {
         players = [];     
         let plyersInputs = document.querySelectorAll('div.player-name-div > input');
         for (const player of plyersInputs) {
-            if(player.value == '' || players.includes(player.value)){
+            if(player.value == '' || player.value.length > 18 || players.includes(player.value)){
                 players = [];
                 return false;
             }else{
@@ -55,5 +55,5 @@ function extractPlayersName() {
 }
 
 function loadGamePage() {
-    window.location = 'pages/game.html';
+    window.location = 'pages/play.html';
 }
