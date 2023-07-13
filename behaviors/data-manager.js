@@ -9,11 +9,12 @@ function saveDataOnSession() {
     if(extractPlayersName()
     && extractSelectedCheckboxes(selectedAgents, 'div#agent-selector-div div.deselect-div > input', totalAgentsMap)
     && extractSelectedCheckboxes(selectedMaps, 'div#map-selector-div div.deselect-div > input', totalMapsMap, true)){
-        // Stringifyies and save on session both maps
-        let stringifiableAgents = Object.fromEntries(selectedAgents);
-        sessionStorage.agents = JSON.stringify(stringifiableAgents);
-        let stringifiableMaps = Object.fromEntries(selectedMaps);
-        sessionStorage.maps = JSON.stringify(stringifiableMaps);
+        // Stringifyies and save on session both maps (agents and maps)
+        sessionStorage.agents = JSON.stringify(Object.fromEntries(selectedAgents));
+        // For the map of Maps, as it contains maps as value, every single value must be stringifyied
+        for (const [key, value] of selectedMaps.entries())
+            selectedMaps.set(key, JSON.stringify(Object.fromEntries(value)));
+        sessionStorage.maps = JSON.stringify(Object.fromEntries(selectedMaps));
 
         // Stringifyies the players array and save it in the session
         sessionStorage.players = JSON.stringify(players);

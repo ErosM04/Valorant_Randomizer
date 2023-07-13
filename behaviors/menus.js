@@ -5,14 +5,13 @@ var totalMapsMap = new Map();
 async function buildMenus(){
     let agents = await getAgentsMap();
     let maps = await getMapsMap();
-    
+    console.log(maps);
     for (const [key, value] of agents.entries()) {
         buildAgentCell(key, value);
     }
 
-    for (const [key, value] of maps.entries()) {
-        if(!unwantedMaps.includes(key))
-            buildMapCell(key, value);
+    for (const key of maps.keys()) {
+        buildMapCell(key, maps.get(key).get('map'));
     }
 }
 
@@ -70,19 +69,33 @@ async function getAgentsMap(){
     const res = await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
     const agents = await res.json();
     const agentsMap = new Map();
-    agents['data'].forEach(agent => agentsMap.set(agent["displayName"], agent["displayIcon"]));
+    agents['data'].forEach(agent => agentsMap.set(agent['displayName'], agent['displayIcon']));
     totalAgentsMap = agentsMap;
     return agentsMap;
 }
 
 /**
- * Map['map-name'] => icon-link
+ * ```
+ * Map{
+ *      'map-name' : Map{
+ *              'map' : 'https://...map.png
+ *              'layout' : 'https://...map.png
+ *          }
+ * }
+ * ```
  */
 async function getMapsMap(){
     const res = await fetch("https://valorant-api.com/v1/maps");
     const maps = await res.json();
     const mapsMap = new Map();
-    maps['data'].forEach(map => mapsMap.set(map["displayName"], map["splash"]));
-    totalMapsMap = mapsMap
+    maps['data'].forEach(map => {
+        if(!unwantedMaps.includes(map['displayName'])){
+            let tempMap = new Map();
+            tempMap.set('map', map['splash']);
+            tempMap.set('layout', map['displayIcon']);
+            mapsMap.set(map['displayName'], tempMap);
+        }
+    });
+    totalMapsMap = mapsMap;
     return mapsMap;
 }

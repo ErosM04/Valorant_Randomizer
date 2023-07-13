@@ -10,7 +10,7 @@ function randomizeAll(){
 
 function randomizeMap(){
     let randomMap = getRandomElementFromMap(maps);
-    setMap(randomMap[0], randomMap[1]);
+    setMap(randomMap[0], randomMap[1].get('map'), randomMap[1].get('layout'));
 }
 
 /**
