@@ -1,23 +1,38 @@
-var maps = ["SPLIT", "HAVEN", "ASCENT", "ICEBOX", "BIND", "FRACTURE", "BREEZE", "PEARL", "LOTUS"];
-var agents = ["JETT", "SAGE", "SOVA", "REYNA", "OMEN", "BREACH", "BRIMSTONE", "PHOENIX", "RAZE", "KILLJOY", "CYPHER", "VIPER", "SKYE", "YORU", "ASTRA", "KAYO", "CHAMBER", "NEON", "FADE", "HARBOR", "GEKKO", "DEADLOCK"];
-var players = ["a", "b", "c", "d", "e", "f"] //An array that contains all the players' nicknames
-var attackers = new Array()
-var defenders = new Array()
-var map
+var attackers = new Array();
+var defenders = new Array();
 
-// API: https://valorant-api.com
+// --------------------------------------ROBA MIA-------------------------------------------------------------
+
+function randomizeAll(){
+    readDataMaps();
+    randomizeMap();
+}
+
+function randomizeMap(){
+    let randomMap = getRandomElementFromMap(maps);
+    setMap(randomMap[0], randomMap[1]);
+}
 
 /**
- * Questo metodo aggiunge un nuovo giocatore
- * @param {String} name nome del giocatore
+ * Takes a maps as parameter, than converts it into an array and return an array containing only a random element of the map.
+ * @param {Map} map the map containing the elements.
+ * @returns {Array} an array containg at the first position (arr[0]) the key of the map,
+ * and at the second position (arr[1]) the value associated with that key.
  */
-function addPlayer(name) {
-    players[players.length] = name
+function getRandomElementFromMap(map){
+    let items = Array.from(map);
+    return items[Math.floor(Math.random() * items.length)];
 }
 
-function reRandomize() {
+// function getRandomInt(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+// }
 
-}
+
+// --------------------------------------ROBA MIA-------------------------------------------------------------
+
 
 /**
  * Questo metodo randomizza squadre, agenti e mappa
@@ -29,7 +44,6 @@ async function randomize() {
 
     ramdomizeMap()
 }
-
 
 /**
  * Questo metodo randomizza gli agenti
@@ -83,11 +97,11 @@ function randomizeSquads() {
 /**
  * Questo metodo randomizza la mappa
  */
-function ramdomizeMap() {
-    r = Math.floor(Math.random() * (maps.length - 1))
-    map = maps[r]
-    updateMap()
-
+function ramdomizeMap(maps) {
+    var a = getRandomValueFromMap(maps);
+    console.log(a);
+    console.log(typeof(a));
+    return a;
 }
 
 /**
@@ -187,4 +201,9 @@ function remove(c) {
         default:
             break;
     }
+}
+
+function getRandomValueFromMap(map){
+    let items = Array.from(map);
+    return items[Math.floor(Math.random() * items.length)];
 }

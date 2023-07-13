@@ -2,11 +2,12 @@
     <head>
         <meta charset="UTF-8">
         <script src="../behaviors/play.js"></script>
+        <script src="../behaviors/random.js"></script>
         <link rel="stylesheet" href="../styles/style.css">
         <link rel="stylesheet" href="../styles/game.css">
         <title>Let's play!</title>
     </head>
-    <body onload="printParameters()">
+    <body onload="randomizeAll()">
         <!-- Header -->
         <div id="header-div" class="black_container">
             <div id="logo">
@@ -19,7 +20,7 @@
 
         <!-- Map name -->
         <div id="map-name-div" class="black_container">
-            <p>Ascent</p>
+            <!-- <p>Ascent</p> -->
         </div>
 
         <!-- Squads -->
@@ -85,7 +86,7 @@
         <div id="rerandomize-div">
             <div class="button-slide margin-button" onclick="">Rerandomize squads</div>
             <div class="button-slide margin-button" onclick="">Rerandomize agents</div>
-            <div class="button-slide margin-button" onclick="">Rerandomize map</div>
+            <div class="button-slide margin-button" onclick="randomizeAll()">Rerandomize map</div>
         </div>
 
 

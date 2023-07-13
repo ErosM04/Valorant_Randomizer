@@ -40,6 +40,7 @@
 
 #defenders > p{
     color: #459E8E;
+    margin: 0;
 }
 
 #defenders div.players-div div.player-row img{
@@ -56,6 +57,7 @@
 
 #attackers > p{
     color: #F24464;
+    margin: 0;
 }
 
 #attackers div.players-div div.player-row img{
