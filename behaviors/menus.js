@@ -5,7 +5,7 @@ var totalMapsMap = new Map();
 async function buildMenus(){
     let agents = await getAgentsMap();
     let maps = await getMapsMap();
-    console.log(maps);
+
     for (const [key, value] of agents.entries()) {
         buildAgentCell(key, value);
     }

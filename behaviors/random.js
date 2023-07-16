@@ -1,16 +1,80 @@
 var attackers = new Array();
 var defenders = new Array();
+var attackersAgents = new Array();
+var defendersAgents = new Array();
 
 // --------------------------------------ROBA MIA-------------------------------------------------------------
 
 function randomizeAll(){
     readDataMaps();
-    randomizeMap();
+    randomizeMaps();
+    randomizeSquads();
+    randomizeAgents();
 }
 
-function randomizeMap(){
+function randomizeMaps(){
     let randomMap = getRandomElementFromMap(maps);
-    setMap(randomMap[0], randomMap[1].get('map'), randomMap[1].get('layout'));
+    buildMap(randomMap[0], randomMap[1].get('map'), randomMap[1].get('layout'));
+}
+
+
+function randomizeSquads() {
+    // If the number of players is odd, than this randomize which squad has one more players
+    let splitRand = 0;
+    if(players.length % 2 != 0)
+        splitRand = Math.floor(Math.random() * 2);
+
+    // To avoid the higher probability of the second half of the array to end up in the second squad, the array is randomly reversed;
+    // Randomize attackers
+    let buff = randomize(players, ((players.length) / 2) - splitRand, attackers, Math.floor(Math.random() * 2));
+
+    // Set remaining players as defenders
+    let n = 0
+    for (i = 0; i < buff.length; i++) {
+        if (buff[i] != 0) {
+            defenders[n] = buff[i]
+            n++
+        }
+    }
+
+    buildSquads(attackers, defenders);
+}
+
+/**
+ * Randomize both attackers and defenders agents using ``randomize`` and than updates the UI using ````.
+ */
+function randomizeAgents(){
+    //Randomize attackers
+    randomize(agents, attackers.length, attackersAgents);
+    //Randomize defenders
+    randomize(agents, defenders.length, defendersAgents);
+    
+    // updateAgents();
+}
+
+/**
+ * Takes an array and randomizes its content saving the randomized elements in ``assignedArr`` and than returns the initial arr (now modified).
+ * @param {Array} arr the array containg the elements to randomize (a deep copy is used in order not to alter the original array).
+ * @param {} condition the amount of elements inside ``arr`` to randomize. if you want to randomize all the elements in ``arr`` just use ``arr.length``.
+ * @param {Array} assignedArr the array which will revcieve the values in a randomized order.
+ * @param {boolean} reverse a boolean to decide to reverse or not the array before randomizing it, used to increase randomicity.
+ * @returns the resulting array copied by ``arr``, all the values used (and so moved to ``assignedArr``) are now equals to ``0``.
+ */
+function randomize(arr, condition, assignedArr, reverse = false){
+    let buff = [...arr] // deep copy
+
+    if(reverse)
+        buff.reverse();
+
+    for (i = 0; i < condition; i++) {
+        let r = Math.floor(Math.random() * (buff.length - 1))
+        while (buff[r] == 0) {
+            r = Math.floor(Math.random() * (buff.length - 1))
+        }
+        assignedArr[i] = buff[r]
+        buff[r] = 0
+    }
+    return buff;
 }
 
 /**
@@ -24,85 +88,8 @@ function getRandomElementFromMap(map){
     return items[Math.floor(Math.random() * items.length)];
 }
 
-// function getRandomInt(min, max) {
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-// }
-
 
 // --------------------------------------ROBA MIA-------------------------------------------------------------
-
-
-/**
- * Questo metodo randomizza squadre, agenti e mappa
- */
-async function randomize() {
-    randomizeSquads()
-
-    await ramdomizeAgents()
-
-    ramdomizeMap()
-}
-
-/**
- * Questo metodo randomizza gli agenti
- */
-function ramdomizeAgents() {
-    buff = [...agents]
-    for (i = 0; i < attackers.length; i++) {
-        r = Math.floor(Math.random() * (buff.length - 1))
-        while (buff[r] == 0) {
-            r = Math.floor(Math.random() * (buff.length - 1))
-        }
-        attackers[i] = buff[r]
-        buff[r] = 0
-    }
-
-    buff = [...agents]
-    for (i = 0; i < defenders.length; i++) {
-        r = Math.floor(Math.random() * (buff.length - 1))
-        while (buff[r] == 0) {
-            r = Math.floor(Math.random() * (buff.length - 1))
-        }
-        defenders[i] = buff[r]
-        buff[r] = 0
-    }
-    updateAgents()
-}
-
-/**
- * Questo metodo randomizza le squadre
- */
-function randomizeSquads() {
-    buff = [...players]
-    for (i = 0; i < (buff.length) / 2; i++) {
-        r = Math.floor(Math.random() * (buff.length - 1))
-        while (buff[r] == 0) {
-            r = Math.floor(Math.random() * (buff.length - 1))
-        }
-        attackers[i] = buff[r]
-        buff[r] = 0
-    }
-    n = 0
-    for (i = 0; i < buff.length; i++) {
-        if (buff[i] != 0) {
-            defenders[n] = buff[i]
-            n++
-        }
-    }
-    updateNicknames()
-}
-
-/**
- * Questo metodo randomizza la mappa
- */
-function ramdomizeMap(maps) {
-    var a = getRandomValueFromMap(maps);
-    console.log(a);
-    console.log(typeof(a));
-    return a;
-}
 
 /**
  * Questo metodo aggiorna gli input contenenti i nicknames dei giocatori
@@ -201,9 +188,4 @@ function remove(c) {
         default:
             break;
     }
-}
-
-function getRandomValueFromMap(map){
-    let items = Array.from(map);
-    return items[Math.floor(Math.random() * items.length)];
 }
