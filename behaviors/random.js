@@ -3,13 +3,11 @@ var defenders = new Array();
 var attackersAgents = new Array();
 var defendersAgents = new Array();
 
-// --------------------------------------ROBA MIA-------------------------------------------------------------
-
 function randomizeAll(){
     readDataMaps();
     randomizeMaps();
     randomizeSquads();
-    randomizeAgents();
+    // randomizeAgents() is included in `randomizeSquads()
 }
 
 function randomizeMaps(){
@@ -20,7 +18,8 @@ function randomizeMaps(){
 
 function randomizeSquads() {
     // Clean arrays to avoid errors
-    attackers, defenders = [];
+    attackers = [];
+    defenders = [];
 
     // If the number of players is odd, than this randomize which squad has one more players
     let splitRand = 0;
@@ -30,7 +29,7 @@ function randomizeSquads() {
     // To avoid the higher probability of the second half of the array to end up in the second squad, the array is randomly reversed;
     // Randomize attackers
     let buff = randomize(players, ((players.length) / 2) - splitRand, attackers, Math.floor(Math.random() * 2));
-    console.log(buff);
+
     // Set remaining players as defenders
     let n = 0
     for (i = 0; i < buff.length; i++) {
@@ -39,21 +38,25 @@ function randomizeSquads() {
             n++
         }
     }
-    console.log(attackers);
-    console.log(defenders);
-    // buildSquads(attackers, defenders);
+
+    buildSquads(attackers, defenders);
+
+    // As the squads may change (2 v 3 --> 3 v 2), also agents must be rotated
+    randomizeAgents();
 }
 
 /**
  * Randomize both attackers and defenders agents using ``randomize`` and than updates the UI using ````.
  */
 function randomizeAgents(){
+    // Clean arrays to avoid errors
+    attackersAgents = [];
+    defendersAgents = [];
+
     //Randomize attackers
     randomize(agents, attackers.length, attackersAgents);
     //Randomize defenders
     randomize(agents, defenders.length, defendersAgents);
-    console.log(defendersAgents);
-    console.log(attackersAgents);
     // updateAgents();
 }
 
@@ -91,106 +94,4 @@ function randomize(arr, condition, assignedArr, reverse = false){
 function getRandomElementFromMap(map){
     let items = Array.from(map);
     return items[Math.floor(Math.random() * items.length)];
-}
-
-
-// --------------------------------------ROBA MIA-------------------------------------------------------------
-
-/**
- * Questo metodo aggiorna gli input contenenti i nicknames dei giocatori
- */
-function updateNicknames() {
-    remove('N')
-    let input = document.createElement("input")
-    for (i = 0; i < attackers.length; i++) {
-        let elm = document.querySelector("#attackers").querySelector("#nicknames")
-        input = document.createElement("input")
-        input.setAttribute("type", "text")
-        input.value = attackers[i]
-        input.readOnly = true
-        elm.appendChild(input)
-    }
-    for (i = 0; i < defenders.length; i++) {
-        let elm = document.querySelector("#defenders").querySelector("#nicknames")
-        input = document.createElement("input")
-        input.setAttribute("type", "text")
-        input.value = defenders[i]
-        input.readOnly = true
-        elm.appendChild(input)
-    }
-}
-
-/**
- * Questo metodo aggiorna le immagine degli agenti
- */
-function updateAgents() {
-    remove('A')
-    let img = document.createElement("img")
-    for (i = 0; i < attackers.length; i++) {
-        let elm = document.querySelector("#attackers").querySelector("#agents")
-        img = document.createElement("img")
-        img.src = "images\\Agents\\" + attackers[i] + ".png"
-        elm.appendChild(img)
-    }
-    for (i = 0; i < defenders.length; i++) {
-        let elm = document.querySelector("#defenders").querySelector("#agents")
-        img = document.createElement("img")
-        img.src = "images\\Agents\\" + defenders[i] + ".png"
-        elm.appendChild(img)
-    }
-}
-
-/**
- * Questo metodo aggiorna l'immagine della mappa
- */
-function updateMap() {
-    remove('M')
-    let elm = document.querySelector("#map")
-    img = document.createElement("img")
-    img.src = "images\\Maps\\" + map + ".png"
-    elm.appendChild(img)
-}
-
-/**
- * Questo metodo rimuove degli elementi specifici a seconda del parametro in input:
- * 'A' : elimina tutte le immagini relative agli agenti
- * 'N' : elimina tutti gli input conteneti i nicknames dei giocatori
- * 'M' : elimina l'immmagine della mappa
- * @param {char} c carattere che indica la voce  
- */
-function remove(c) {
-    let elm
-    switch (c) {
-        case 'A':
-            elm = document.querySelector("#attackers").querySelector("#agents")
-            while (elm.firstChild) {
-                elm.removeChild(elm.firstChild)
-            }
-            elm = document.querySelector("#defenders").querySelector("#agents")
-            while (elm.firstChild) {
-                elm.removeChild(elm.firstChild)
-            }
-            break;
-
-        case 'N':
-            elm = document.querySelector("#attackers").querySelector("#nicknames")
-            while (elm.firstChild) {
-                elm.removeChild(elm.firstChild)
-            }
-            elm = document.querySelector("#defenders").querySelector("#nicknames")
-            while (elm.firstChild) {
-                elm.removeChild(elm.firstChild)
-            }
-            break;
-
-        case 'M':
-            elm = document.querySelector("#map")
-            while (elm.firstChild) {
-                elm.removeChild(elm.firstChild)
-            }
-            break;
-
-        default:
-            break;
-    }
 }
