@@ -1,3 +1,4 @@
+/* Div to insert the number of players */
 #pl-amount-div{
     width: 21vw;
     margin: auto;
@@ -27,6 +28,7 @@
     padding-left: 0.6vw;
 }
 
+/* Div used to inset the name of the players */
 #players-inserter-div{
     margin-top: 2%;
     margin-bottom: 3%;
@@ -52,6 +54,7 @@
     border-radius: 1.4vw;
 }
 
+/* Title of the deselct menus */
 .deselect-title{
     width: max-content;
     white-space: nowrap;
@@ -69,6 +72,7 @@
     text-align: center;
 }
 
+/* Agent cell with checkbox */
 #agent-selector-div{
     margin: auto;
     margin-top: 1%;
@@ -87,6 +91,7 @@
     height: 2vw;
 }
 
+/* Map cell with checkbox */
 #map-selector-div{
     margin: auto;
     margin-bottom: 4%;
@@ -114,6 +119,7 @@
     font-size: 1vw;
 }
 
+/* Generate button */
 #generate-button{
     display: inline-block;
     margin-left: 44%;

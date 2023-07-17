@@ -1,3 +1,4 @@
+/* Map name header */
 #map-name-div{
     width: 15vw;
     align-items: center;
@@ -12,6 +13,7 @@
     font-size: 1.8vw;
 }
 
+/* Squads */
 #squads-div{
     display: flex;
     justify-content: space-between;
@@ -34,6 +36,7 @@
     padding-bottom: 0.5vw;
 }
 
+/* Defender squad */
 #defenders{
     margin-left: 3%;
 }
@@ -51,6 +54,7 @@
     background: rgba(44, 172, 204, .9);
 }
 
+/* Attackers squad */
 #attackers{
     margin-right: 3%;
 }
@@ -68,6 +72,7 @@
     background: rgba(255, 70, 85, .9);
 }
 
+/* Player name and agent image */
 .players-div{
     width: 70%;
     margin-top: 1vw;
@@ -98,10 +103,12 @@
     font-size: 1.1vw;
 }
 
+/* Center layout map image */
 #map-icon{
     width: 100%;
 }
 
+/* Re-randomize buttons */
 #rerandomize-div{
     display: flex;
     justify-content: center;

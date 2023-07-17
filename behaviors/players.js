@@ -1,3 +1,9 @@
+/**
+ * For each player (not less than 0 or more than 10) use ``createPlayerForm()`` to create a input text to
+ * insert the player name.
+ * 
+ * @param {number} number the number of total players.
+ */
 function createPlayers(number){
     if(number < 0)
         number = 0;
@@ -10,6 +16,11 @@ function createPlayers(number){
     }
 }
 
+/**
+ * Creates the text (e.g. 'Player-0') and input text to used to insert the player's name. 
+ * 
+ * @param {number} index the index of the player
+ */
 function createPlayerForm(index){
     // Creates the container
     let div = document.createElement('div');

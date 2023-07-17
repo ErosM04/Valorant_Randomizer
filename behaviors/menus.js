@@ -2,6 +2,10 @@ const unwantedMaps = ['District', 'Kasbah', 'Piazza', 'The Range'];
 var totalAgentsMap = new Map();
 var totalMapsMap = new Map();
 
+/**
+ * Asyncronous function which gets the agents and maps Maps using ``getAgentsMap()`` and ``getMapsMap()`` and
+ * then for each element builds the checkbox in the DOM.
+ */
 async function buildMenus(){
     let agents = await getAgentsMap();
     let maps = await getMapsMap();
@@ -15,13 +19,19 @@ async function buildMenus(){
     }
 }
 
+/**
+ * Creates a cell which contains the image of the agent and the checkbox to deselect it.
+ * 
+ * @param {String} name the name of the agent.
+ * @param {String} image the link of the agent image.
+ */
 function buildAgentCell(name, image){
     // Creates the div
     let div = document.createElement('div');
     div.className = "deselect-div";
     // Creates the image
     let img = document.createElement('img');
-    // img.src = image;
+    img.src = image;
     img.className = 'agent-deselect-img';
     // Creates the checkbox
     let check = document.createElement('input');
@@ -36,13 +46,19 @@ function buildAgentCell(name, image){
     document.getElementById('agent-selector-div').appendChild(div);
 }
 
+/**
+ * Creates a cell which contains the image of the map, its name and the checkbox to deselect it.
+ * 
+ * @param {String} name the name of the map.
+ * @param {String} image the link of the map image.
+ */
 function buildMapCell(name, image){
     // Creates the div
     let div = document.createElement('div');
     div.className = "deselect-div";
     // Creates the image
     let img = document.createElement('img');
-    // img.src = image;
+    img.src = image;
     img.className = 'map-deselect-img';
     // Creates the text
     let text = document.createElement('p');
@@ -63,7 +79,15 @@ function buildMapCell(name, image){
 }
 
 /**
- * Map['agent-name'] => icon-link
+ * Use the [valorant-api](https://valorant-api.com/v1/agents?isPlayableCharacter=true) to get the name and the image of
+ * each agent.
+ * ```
+ * Map{
+ *      'Omen' : 'https://...png',
+ *      'Astra' : 'https://...png',
+ *      ...
+ * }
+ * ```
  */
 async function getAgentsMap(){
     const res = await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true");
@@ -75,12 +99,18 @@ async function getAgentsMap(){
 }
 
 /**
+ * Use the [valorant-api](https://valorant-api.com/v1/maps) to get the name, the image and the layout image of each map.
  * ```
  * Map{
- *      'map-name' : Map{
- *              'map' : 'https://...map.png
- *              'layout' : 'https://...map.png
- *          }
+ *      'Ascent' : Map{
+ *              'map' : 'https://...png'
+ *              'layout' : 'https://...png'
+ *          },
+ *      'Bind' : Map{
+ *              'map' : 'https://...png'
+ *              'layout' : 'https://...png'
+ *          },
+ *      ...
  * }
  * ```
  */

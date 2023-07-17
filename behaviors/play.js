@@ -1,7 +1,14 @@
-var players = new Map();
+// Array of all the players name
+var players = new Array();
+// Map of all the agent name with the respecitive image, e.g. {'Omen' : 'https://...jpg'}
 var agents = new Map();
+// Map of all the maps name with the respecitive image, e.g. {'Ascent' : 'https://...jpg'}
 var maps = new Map();
 
+/**
+ * Reads the ``players`` array and the ``agents`` and ``maps`` Maps saved in the ``sessionStorage``, then parse the data and save
+ * them respectively in the ``players`` global array and the ``agents`` and ``maps`` global Maps.
+ */
 function readDataMaps() {
     players = JSON.parse(sessionStorage.players);
     agents = new Map(Object.entries(JSON.parse(sessionStorage.agents)));
@@ -12,9 +19,15 @@ function readDataMaps() {
         maps.set(key, new Map(Object.entries(JSON.parse(value))));    
 }
 
+/**
+ * Clean the background map image and insert a new image with the ``image`` link, and does the same with
+ * the ``name`` of the map and ``layout`` link image.
+ * 
+ * @param {String} name the name of the map.
+ * @param {String} image the link to the image of the map (using the valorant api).
+ * @param {String} layout the link to the image of the layout of the map (using the valorant api).
+ */
 function buildMap(name, image, layout) {
-    // document.body.style.backgroundImage = "url('../images/splash.png')";
-
     // Set the map as background image
     document.body.style.backgroundImage = "url('" + image + "')";
     // Set the map name
@@ -30,28 +43,66 @@ function buildMap(name, image, layout) {
     document.getElementById('map-layout-div').appendChild(mapLayout);
 }
 
+/**
+ * Use the ``updateSquad()`` method to either create or update the name (as a paragraph) of the players of both squads. 
+ * 
+ * @param {Array} defenseArr the array of players name of the defending squad.
+ * @param {Array} attackArr the array of players name of the attacking squad.
+ */
 function buildSquads(defenseArr, attackArr){
     updateSquad(defenseArr, document.querySelectorAll('div#defenders div.players-div > div.player-row'), 'p');
     updateSquad(attackArr, document.querySelectorAll('div#attackers div.players-div > div.player-row'), 'p');
 }
 
-function buildAgents(){
-    updateSquad(extract(defendersAgents), document.querySelectorAll('div#defenders div.players-div > div.player-row'), 'img');
-    updateSquad(extract(attackersAgents), document.querySelectorAll('div#attackers div.players-div > div.player-row'), 'img');
+/**
+ * Use the ``updateSquad()`` method to either create or update the images of the agents of both squads. 
+ * 
+ * @param {Array} defenseArr the array of agents images of the defending squad.
+ * @param {Array} attackArr the array of agents images of the attacking squad.
+ */
+function buildAgents(defenseArr, attackArr){
+    updateSquad(defenseArr, document.querySelectorAll('div#defenders div.players-div > div.player-row'), 'img');
+    updateSquad(attackArr, document.querySelectorAll('div#attackers div.players-div > div.player-row'), 'img');
 }
 
-function extract(arr) {
+/**
+ * Thakes an array containg sub arrays, and then creates an array extracting a value at a specific ``position`` for each subarray.
+ * e.g.:
+ * ```
+ * arr : [['a', 'b'], ['c', 'd'], ['e', 'f']]
+ * position: 1
+ * result: ['b', 'd', 'f']
+ * ```
+ * 
+ * @param {Array} arr the array to iterate.
+ * @param {number} position the index of the subarry to use.
+ * @returns {Array} the array of subelements.
+ */
+function extract(arr, position) {
     let result = [];
     for (const subarr of arr) {
-        result.push(subarr[1]);
+        result.push(subarr[position]);
     }
     return result;
 }
 
+/**
+ * Iterates the ``divArr`` and for each cell, if at the same index in the ``dataArr`` there are any data, then the data is insert
+ * (created or updated) in the div, with differents procedures based on the tag specified by ``element``.
+ * 
+ * @param {Array} dataArr the array containg the data to inser in the DOM, e.g. ['Gino', 'Marco', ...].
+ * @param {Array} divArr the array of divs, in each div the data of a cell of the ``dataArr`` array is inserted.
+ * @param {String} element the type of element to insert, only supported are 'p' (for players name) and 'img' (for agents image).
+ */
 function updateSquad(dataArr, divArr, element){
+    // Iterates the 5 div used as player row
     for (let i = 0; i < divArr.length; i++) {
+        // If at this position we have some data (like a plyer name) we either create or update it
         if(i < dataArr.length){
-            if(divArr[i].childNodes.length > 1){
+            // If the div has only one child, it has to be a paragraph (as it's the first created)
+            // So in this particular case if we are creating for the first time the agent img, we 
+            // must go for the else block
+            if(divArr[i].childNodes.length > 1){ // Case to update existing paragraph or img
                 for (const child of divArr[i].childNodes) {
                     if(element == 'p'){ // Change the paragraph
                         if(child.nodeName.toString().toUpperCase() == 'P'){
@@ -63,7 +114,7 @@ function updateSquad(dataArr, divArr, element){
                         }
                     }
                 }
-            }else{
+            }else{ // Case to create for the first time a paragraph or img
                 let DOMelement = document.createElement(element);
                 if(element == 'p'){
                     DOMelement.className = 'player-name';
@@ -75,7 +126,7 @@ function updateSquad(dataArr, divArr, element){
                     divArr[i].insertBefore(DOMelement, divArr[i].firstChild)
                 }
             }
-        }else{
+        }else{ // If there are no more data this cell must be cleared
             divArr[i].innerHTML = '';
         }
     }
