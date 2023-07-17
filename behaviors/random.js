@@ -101,13 +101,15 @@ function randomize(arr, condition, assignedArr, reverse = false){
         buff.reverse();
 
     for (i = 0; i < condition; i++) {
-        let r = Math.floor(Math.random() * (buff.length - 1))
+        // returns a number between 0 (included) and buff.length (excluded)
+        let r = Math.floor(Math.random() * buff.length)
         while (buff[r] == 0) {
-            r = Math.floor(Math.random() * (buff.length - 1))
+            r = Math.floor(Math.random() * buff.length);
         }
-        assignedArr[i] = buff[r]
-        buff[r] = 0
+        assignedArr[i] = buff[r];
+        buff[r] = 0;
     }
+    
     return buff;
 }
 

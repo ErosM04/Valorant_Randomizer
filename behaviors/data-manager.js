@@ -32,16 +32,20 @@ function saveDataOnSession() {
 
 /**
  * Iterates all the input checkbox of the DOM obtained with the ``query`` and for each element if it checked, then is saved
- * in the ``selectedElement`` map, using the data of the ``totalMap`` (containg all the elments). Finally if ``isMap`` is
- * false and there are at least 2 elements in ``selectedElement`` or ``isMap`` is true and there are at least 1 elements in
- * ``selectedElement`` the return value will be true. 
+ * in the ``selectedElement`` map, using the data of the ``totalMap`` (containg all the elments).
+ * 
+ * Finally if ``isMap`` is true means we are working with maps, and so ``selectedElements`` at the end of the cicle must have
+ * at least 1 element (meaning that at least 1 checkbox has to be checked), otherwise it's going to return false.
+ * 
+ * While if ``isMap`` is false means we are working with agents, and so ``selectedElements`` at the end of the cicle must have
+ * at least the same amount of elements (extracted by the checked checkboxes) as half of the length of the ``players`` array
+ * (e.g. players = 3, length required = 2 or players = 6, length required = 3), otherwise it's going to return false.
  * 
  * @param {Map} selectedElement the map where selected (✅) data will be saved.
  * @param {String} query the DOM query to extract all the checkbox values.
  * @param {Map} totalMap the map with all the data (even not selected).
  * @param {boolean} isMap boolean to indicate if we are working on maps (true) or agents (false, default).
- * @returns {boolean} true if there are at least 1 element (if we are working with a map, otherwise we are working with agents
- * and needs at least 2 elements).
+ * @returns {boolean} true if data were successfully extracted and there were enough elements.
  */
 function extractSelectedCheckboxes(selectedElement, query, totalMap, isMap = false) {
     let checkboxes = document.querySelectorAll(query);
@@ -49,7 +53,7 @@ function extractSelectedCheckboxes(selectedElement, query, totalMap, isMap = fal
         if(checkbox.checked)
             selectedElement.set(checkbox.id.split('-')[2], totalMap.get(checkbox.id.split('-')[2]));
     
-    if(selectedElement.size >= ((isMap) ? 1 : 2)){
+    if((isMap && selectedElement.size >= 1) || (!isMap && selectedElement.size >= Math.ceil(players.length / 2))){
         return true;
     }else{
         selectedElement.clear();
