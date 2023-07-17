@@ -1,25 +1,30 @@
-var attackers = new Array();
 var defenders = new Array();
-var attackersAgents = new Array();
+var attackers = new Array();
 var defendersAgents = new Array();
+var attackersAgents = new Array();
 
 function randomizeAll(){
     readDataMaps();
     randomizeMaps();
     randomizeSquads();
     // randomizeAgents() is included in `randomizeSquads()
+    console.log(defenders);
+    console.log(attackers);
+    console.log(defendersAgents);
+    console.log(attackersAgents);
 }
 
 function randomizeMaps(){
     let randomMap = getRandomElementFromMap(maps);
+    // Updates UI
     buildMap(randomMap[0], randomMap[1].get('map'), randomMap[1].get('layout'));
 }
 
 
 function randomizeSquads() {
     // Clean arrays to avoid errors
-    attackers = [];
     defenders = [];
+    attackers = [];
 
     // If the number of players is odd, than this randomize which squad has one more players
     let splitRand = 0;
@@ -39,7 +44,8 @@ function randomizeSquads() {
         }
     }
 
-    buildSquads(attackers, defenders);
+    // Updates UI
+    buildSquads(defenders, attackers);
 
     // As the squads may change (2 v 3 --> 3 v 2), also agents must be rotated
     randomizeAgents();
@@ -53,11 +59,13 @@ function randomizeAgents(){
     attackersAgents = [];
     defendersAgents = [];
 
-    //Randomize attackers
-    randomize(agents, attackers.length, attackersAgents);
     //Randomize defenders
     randomize(agents, defenders.length, defendersAgents);
-    // updateAgents();
+    //Randomize attackers
+    randomize(agents, attackers.length, attackersAgents);
+    
+    // Updates UI
+    buildAgents();
 }
 
 /**
