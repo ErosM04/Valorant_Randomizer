@@ -66,27 +66,6 @@ function buildAgents(defenseArr, attackArr){
 }
 
 /**
- * Thakes an array containg sub arrays, and then creates an array extracting a value at a specific ``position`` for each subarray.
- * e.g.:
- * ```
- * arr : [['a', 'b'], ['c', 'd'], ['e', 'f']]
- * position: 1
- * result: ['b', 'd', 'f']
- * ```
- * 
- * @param {Array} arr the array to iterate.
- * @param {number} position the index of the subarry to use.
- * @returns {Array} the array of subelements.
- */
-function extract(arr, position) {
-    let result = [];
-    for (const subarr of arr) {
-        result.push(subarr[position]);
-    }
-    return result;
-}
-
-/**
  * Iterates the ``divArr`` and for each cell, if at the same index in the ``dataArr`` there are any data, then the data is insert
  * (created or updated) in the div, with differents procedures based on the tag specified by ``element``.
  * 
