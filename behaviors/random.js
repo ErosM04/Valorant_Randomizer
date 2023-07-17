@@ -19,6 +19,9 @@ function randomizeMaps(){
 
 
 function randomizeSquads() {
+    // Clean arrays to avoid errors
+    attackers, defenders = [];
+
     // If the number of players is odd, than this randomize which squad has one more players
     let splitRand = 0;
     if(players.length % 2 != 0)
@@ -27,7 +30,7 @@ function randomizeSquads() {
     // To avoid the higher probability of the second half of the array to end up in the second squad, the array is randomly reversed;
     // Randomize attackers
     let buff = randomize(players, ((players.length) / 2) - splitRand, attackers, Math.floor(Math.random() * 2));
-
+    console.log(buff);
     // Set remaining players as defenders
     let n = 0
     for (i = 0; i < buff.length; i++) {
@@ -36,8 +39,9 @@ function randomizeSquads() {
             n++
         }
     }
-
-    buildSquads(attackers, defenders);
+    console.log(attackers);
+    console.log(defenders);
+    // buildSquads(attackers, defenders);
 }
 
 /**
@@ -48,7 +52,8 @@ function randomizeAgents(){
     randomize(agents, attackers.length, attackersAgents);
     //Randomize defenders
     randomize(agents, defenders.length, defendersAgents);
-    
+    console.log(defendersAgents);
+    console.log(attackersAgents);
     // updateAgents();
 }
 
