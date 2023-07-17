@@ -47,7 +47,7 @@ function randomizeSquads() {
     // Updates UI
     buildSquads(defenders, attackers);
 
-    // As the squads may change (2 v 3 --> 3 v 2), also agents must be rotated
+    // As the squads may change (ex. 2 v 3 --> 3 v 2), also agents must be rotated
     randomizeAgents();
 }
 
